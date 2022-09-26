@@ -3,10 +3,131 @@
 
 {% block body %}
     <!-- Start of body content specific to page -->
-    <div class="px-5 py-5 mx-auto">
-        <h1 class="text-white"><strong>School Helper</strong></h1>
+    <style>
+        * {
+       box-sizing: border-box;
+    }
+    .imageColumn {
+      position: relative;
+      float: left;
+      width: 25%;
+    }
+    
+    .image_img {
+      display: block;
+      width: 95%;
+      height: auto;
+      
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 95%;
+      opacity: 0;
+      transition: opacity 1s;
+      background-color: #FFB6C1;
+      display: flex;
+      flex-direction: column; 
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .overlay:hover {
+      opacity: 0.75;
+    }
+    
+    .overlay--blur {
+      backdrop-filter: blur(5px);
+    }
+      
+    .title {
+      font-size: 2em;
+      font-weight: bold;
+      display: block;
+      align-items: center;
+    }
+      
+    .text {
+      color: black;
+      font-size: 1.25em;
+      line-height: 1.4;
+      position: relative;
+      width: 96%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      left: 50%;
+      text-align: center;
+    }
+    
+    #header {
+      width: fit-content;
+      margin: 0 auto;
+    }
+    
+    .alignRow {
+      overflow: auto;
+    }
+    
+    </style>
+    <div>
+        <img width="100%" src="{{ url_for('static', filename='assets/scrumboard.png') }}">
     </div>
-    <div class="card">
-        <a href="https://docs.google.com/document/d/1uJS2uJJ9kvuplerYVA6hyNfojvkbD5ugRDo8edAISAw/edit">Week 4: Python Web Server Think-Pair-Share</a>
+    <br>
+    <div style="margin-left: 2.5em; padding: 0 7em 2em 0;">
+        <h2>Our Team!</h2>
+    </div>
+
+
+    <body>
+    
+    <div>
+      
+    <div class="alignRow">
+    <div class="imageColumn">
+      <div class="image_img">
+      <img src="{{ url_for('static', filename='assets/headshot.png') }}" width="100%" alt="Avatar" class="image">
+      <div class="overlay">
+        <div class="title">Grace Wang</div>
+      </div>
+      </div>
+      </div>
+    
+    <div class="imageColumn">
+      <div class="image_img">
+      <img src="{{ url_for('static', filename='assets/placeholder.jpeg') }}" width="100%" alt="Avatar" class="image">
+      <div class="overlay">
+        <div class="title">Amitha Sanka</div>
+    
+      </div>
+      </div>
+      </div>
+    
+    <div class="imageColumn">
+      <div class="image_img">
+      <img src="{{ url_for('static', filename='assets/placeholder.jpeg') }}" width="100%" alt="Avatar" class="image">
+      <div class="overlay">
+        <div class="title">Tanisha Patil</div>
+    
+      </div>
+      </div>
+      </div>
+    
+    <div class="imageColumn">
+      <div class="image_img">
+      <img src="{{ url_for('static', filename='assets/placeholder.jpeg') }}" width="100%" alt="Avatar" class="image">
+      <div class="overlay">
+        <div class="title">Claire Zhao</div>
+     
+      </div>
+      </div>
+      </div>
+    
     </div>
 {% endblock %}
+    
