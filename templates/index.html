@@ -73,10 +73,17 @@
     .alignRow {
       overflow: auto;
     }
+
+    .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
     
     </style>
     <div>
-        <img width="100%" src="{{ url_for('static', filename='assets/scrumboard.png') }}">
+        <img class="center" width="80%" src="{{ url_for('static', filename='assets/scrumboard.png') }}">
     </div>
     <br>
     <div style="margin-left: 2.5em; padding: 0 7em 2em 0;">
@@ -89,25 +96,6 @@
     <div>
       
     <div class="alignRow">
-    <div class="imageColumn">
-      <div class="image_img">
-      <img src="{{ url_for('static', filename='assets/headshot.png') }}" width="100%" alt="Avatar" class="image">
-      <div class="overlay">
-        <div class="title">Grace Wang</div>
-      </div>
-      </div>
-      </div>
-    
-    <div class="imageColumn">
-      <div class="image_img">
-      <img src="{{ url_for('static', filename='assets/placeholder.jpeg') }}" width="100%" alt="Avatar" class="image">
-      <div class="overlay">
-        <div class="title">Amitha Sanka</div>
-    
-      </div>
-      </div>
-      </div>
-    
     <div class="imageColumn">
       <div class="image_img">
       <img src="{{ url_for('static', filename='assets/placeholder.jpeg') }}" width="100%" alt="Avatar" class="image">
@@ -127,6 +115,25 @@
       </div>
       </div>
       </div>
+    
+      <div class="imageColumn">
+        <div class="image_img">
+        <img src="{{ url_for('static', filename='assets/headshot.png') }}" width="100%" alt="Avatar" class="image">
+        <div class="overlay">
+          <div class="title">Grace Wang</div>
+        </div>
+        </div>
+        </div>
+      
+      <div class="imageColumn">
+        <div class="image_img">
+        <img src="{{ url_for('static', filename='assets/placeholder.jpeg') }}" width="100%" alt="Avatar" class="image">
+        <div class="overlay">
+          <div class="title">Amitha Sanka</div>
+      
+        </div>
+        </div>
+        </div>
     
     </div>
 {% endblock %}
