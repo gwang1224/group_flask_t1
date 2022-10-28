@@ -1,8 +1,8 @@
 
 import requests
 artist = input("Enter artist name:") # allow user to input the artist they want
-favorite_artists = [name, likes]
-favorite_artists.append(artist)
+#favorite_artists = [name, likes]
+#favorite_artists.append(artist)
 
 
     
