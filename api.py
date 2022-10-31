@@ -10,8 +10,9 @@ artist = input("Who is your favorite artist?")
 app_api = Blueprint('api', __name__,
                    url_prefix='/api/jokes')
 
+from model_music import *
 
-# API generator https://flask-restful.readthedocs.io/en/latest/api.html#id1
+API generator https://flask-restful.readthedocs.io/en/latest/api.html#id1
 api = Api(app_api)
 
 class JokesAPI:
@@ -64,8 +65,8 @@ class JokesAPI:
     api.add_resource(_UpdateJeer, '/jeer/<int:id>')
     
 if __name__ == "__main__": 
-    # server = "http://127.0.0.1:5000" # run local
-    server = 'https://musicmania.nighthawkcodescrums.gq' # run from web
+    server = "http://127.0.0.1:5000" # run local
+    #server = 'https://musicmania.nighthawkcodescrums.gq' # run from web
     url = server + "/api/jokes"
     responses = []  # responses list
 
@@ -94,7 +95,9 @@ if __name__ == "__main__":
     # cycle through responses
     for response in responses:
         print(response)
+        print(artist)
         try:
             print(response.json())
+
         except:
             print("unknown error")
