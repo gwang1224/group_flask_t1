@@ -64,7 +64,7 @@ def fav_artist(artist):
 def favorites_ranked(dictionary):
     sorted_dict = dict(sorted(dictionary.items(), key=lambda x:x[1]))
     return sorted_dict
-    
+
 # import requests
 # import
 

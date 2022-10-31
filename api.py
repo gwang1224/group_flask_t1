@@ -5,6 +5,8 @@ import random
 
 from model_jokes import *
 
+artist = input("Who is your favorite artist?")
+
 app_api = Blueprint('api', __name__,
                    url_prefix='/api/jokes')
 
