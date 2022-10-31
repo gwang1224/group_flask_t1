@@ -73,12 +73,16 @@ def favorites_ranked(dictionary):
 # #favorite_artists.append(artist)
 
 
+<<<<<<< HEAD
     
 
 
 
 
 # url = "https://youtube-music1.p.rapidapi.com/v2/search"
+=======
+url = "https://youtube-music1.p.rapidapi.com/v2/search"
+>>>>>>> d6a4f98 (space)
 
 # querystring = {"query":artist}
 
