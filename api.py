@@ -12,7 +12,7 @@ app_api = Blueprint('api', __name__,
 
 from model_music import *
 
-API generator https://flask-restful.readthedocs.io/en/latest/api.html#id1
+# API generator https://flask-restful.readthedocs.io/en/latest/api.html#id1
 api = Api(app_api)
 
 class JokesAPI:
