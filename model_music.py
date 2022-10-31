@@ -4,7 +4,7 @@ import json # using .json to reorganize raw data
 favorites = {}
 fav_artist_list = []
 
-def extract_api_data(artist): 
+def initAPI(artist): 
     """Given input of artist name, returns dictionary of api"""
 
     url = "https://youtube-music1.p.rapidapi.com/v2/search"
