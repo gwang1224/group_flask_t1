@@ -27,7 +27,6 @@ joke_list = [
 # Initialize jokes
 def initJokes():
     # setup jokes into a dictionary with id, joke, haha, boohoo
-    artist = input("Artist: " )
     item_id = 0
     for item in joke_list:
         jokes_data.append({"id": item_id, "joke": item, "haha": 0, "boohoo": 0})
