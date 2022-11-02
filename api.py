@@ -16,11 +16,13 @@ class TaylorAPI:
         def get(self):
             return jsonify(initAPI())
 
+
+    # Help :(
     class _UpdateLike(Resource):
-        def put(self, album):
+        def put(self):
             add_like(album)
-            return jsonify(fav_albums)
+            return jsonify(getLikes())
 
 
-    api.add_resource(_Taylor, '/taylor')
-    api.add_resource(_UpdateLike, '/likes')
+    api.add_resource(_Taylor, '/taylor') # Why is this not showing up on web server :(
+    api.add_resource(_UpdateLike, '/likes') # Help :(

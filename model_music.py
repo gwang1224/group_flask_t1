@@ -73,3 +73,7 @@ def fav_artist(artist):
 
 def add_like(album):
     fav_albums[album]["likes"] = fav_albums[album]["likes"] + 1
+    return fav_albums[album]["likes"]
+
+def getLikes():
+    return fav_albums
