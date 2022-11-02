@@ -4,11 +4,11 @@ import json # using .json to reorganize raw data
 favorites = {}
 fav_artist_list = []
 
-def initAPI(artist): 
+def initAPI(): 
     """Given input of artist name, returns dictionary of api"""
 
     url = "https://youtube-music1.p.rapidapi.com/v2/search"
-    querystring = {"query":artist}
+    querystring = {"query": "Taylor Swift"}
     headers = {
 	    "X-RapidAPI-Key": "4a1e45ca8dmshcde31ef8a5baed3p1a2a7ejsn9952d2cf96bd", # use personal key
 	    "X-RapidAPI-Host": "youtube-music1.p.rapidapi.com"
@@ -21,7 +21,7 @@ def initAPI(artist):
 def album(artist):
     """input artist name, returns list of all artist's albums"""
 
-    api_dictionary = extract_api_data(artist)
+    api_dictionary = initAPI(artist)
     album_list = [] # create a new list to start from scratch
     songlist = api_dictionary["result"]["songs"] # dictionary values from API dictionary
 
@@ -37,7 +37,7 @@ def song(artist, album):
     found, if not, returns Information not found"""
 
     song_list = []
-    api_dictionary = extract_api_data(artist)
+    api_dictionary = initAPI(artist)
     song_data = api_dictionary["result"]["songs"]
 
     found = False # by default nothing is found
@@ -73,16 +73,16 @@ def favorites_ranked(dictionary):
 # #favorite_artists.append(artist)
 
 
-<<<<<<< HEAD
+# <<<<<<< HEAD
     
 
 
 
 
+# # url = "https://youtube-music1.p.rapidapi.com/v2/search"
+# =======
 # url = "https://youtube-music1.p.rapidapi.com/v2/search"
-=======
-url = "https://youtube-music1.p.rapidapi.com/v2/search"
->>>>>>> d6a4f98 (space)
+# >>>>>>> d6a4f98 (space)
 
 # querystring = {"query":artist}
 
