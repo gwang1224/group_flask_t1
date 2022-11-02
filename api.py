@@ -3,8 +3,7 @@ from flask_restful import Api, Resource # used for REST API building
 import requests  # used for testing 
 import random
 
-from model_jokes import *
-from model_music import initAPI
+from model_music import *
 
 app_api = Blueprint('api', __name__,
                    url_prefix='/api/music')
@@ -17,4 +16,11 @@ class TaylorAPI:
         def get(self):
             return jsonify(initAPI())
 
+    class _UpdateLike(Resource):
+        def put(self, album):
+            add_like(album)
+            return jsonify(fav_albums)
+
+
     api.add_resource(_Taylor, '/taylor')
+    api.add_resource(_UpdateLike, '/likes')
