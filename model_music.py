@@ -17,7 +17,7 @@ def initAPI():
     url = "https://youtube-music1.p.rapidapi.com/v2/search"
     querystring = {"query":"Taylor Swift"}
     headers = {
-	    "X-RapidAPI-Key": "4a1e45ca8dmshcde31ef8a5baed3p1a2a7ejsn9952d2cf96bd", # use personal key
+	    "X-RapidAPI-Key": "8ca68e698emsh077b34dcb5cedc7p176bfdjsn4a11c2cb1bef", # use personal key
 	    "X-RapidAPI-Host": "youtube-music1.p.rapidapi.com"
     }
     response = requests.request("GET", url, headers=headers, params=querystring)
