@@ -14,7 +14,7 @@ api = Api(app_api)
 class TaylorAPI:
     class _Taylor(Resource):
         def get(self):
-            return jsonify(initAPI())
+            return jsonify(album_song())
 
 
     # Help :(
