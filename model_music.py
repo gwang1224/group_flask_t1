@@ -95,3 +95,5 @@ def album_song():
         #as_dict[album_var].append(songs)
         add_element(as_dict, album_var, song1)
     return as_dict
+    print(as_dict)
+album_song()
