@@ -2,8 +2,7 @@ from flask import Blueprint, jsonify
 from flask_restful import Api, Resource
 from likes_data import *
 
-likes_api = Blueprint('l_api', __name__, 
-                            url_prefix='/api/likes')
+likes_api = Blueprint('l_api', __name__, url_prefix='/api/likes')
 
 l_api = Api(likes_api)
 
