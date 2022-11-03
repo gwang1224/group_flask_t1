@@ -45,6 +45,7 @@ def song(album):
 
     song_list = []
     api_dictionary = initAPI()
+    print(api_dictionary)
     song_data = api_dictionary["result"]["songs"]
 
     found = False # by default nothing is found
@@ -86,7 +87,9 @@ def add_element(dict, key, value):
     if key not in dict:
         dict[key] = []
     dict[key].append(value)
+
 def album_song():
+    as_dict = {}
     for i in range(len(album_list)):
         album_var = album_list[i]
         # print(album_var)
