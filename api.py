@@ -22,7 +22,12 @@ class TaylorAPI:
         def get(self, album):
             add_like(album)
             return jsonify(getAlbum(album))
+    
+    class _SongAlbum(Resource):
+        def get(self):
+            return jsonify(album_song())
 
 
     api.add_resource(_Taylor, '/taylor') 
-    api.add_resource(_UpdateLike, '/like/<string:album>') # Help :(
+    api.add_resource(_UpdateLike, '/like/<string:album>')
+    api.add_resource(_SongAlbum, '/as')

@@ -54,9 +54,6 @@ def song(album):
             song_list.append(song["name"])
             #print(song["name"])
             found = True # variable is now set as true
-
-    if found == False: 
-        print("Information not found")
     return song_list
 
 def fav_artist(artist):
@@ -80,3 +77,21 @@ def getLikes():
 
 def getAlbum(album):
     return fav_albums[album]
+
+
+
+album_list = ['Midnights', 'Midnights (3am Edition)', 'reputation', 'This Love (Taylorâ€™s Version)', "Fearless (Taylor's Version)", '1989', 'Bad Blood', 'Speak Now', 'Lover', "Red (Taylor's Version)", '1989 (Deluxe Edition)', 'Red', 'Today Was A Fairytale']
+as_dict = {}
+def add_element(dict, key, value):
+    if key not in dict:
+        dict[key] = []
+    dict[key].append(value)
+def album_song():
+    for i in range(len(album_list)):
+        album_var = album_list[i]
+        # print(album_var)
+        song1 = song(album_var)
+        #songs = song(album_var)
+        #as_dict[album_var].append(songs)
+        add_element(as_dict, album_var, song1)
+    return as_dict

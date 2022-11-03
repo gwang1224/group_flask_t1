@@ -8,6 +8,7 @@ fav_albums = {}
 # setup ts_albums
 for album in ts_albums:
     fav_albums[album] = {"likes": 0}
+
 def initAPI():
     """Given input of artist name, returns dictionary of api"""
     url = "https://youtube-music1.p.rapidapi.com/v2/search"
@@ -19,6 +20,7 @@ def initAPI():
     response = requests.request("GET", url, headers=headers, params=querystring)
     dict = json.loads(response.text)
     return dict
+
 def album():
     """input artist name, returns list of all artist's albums"""
     api_dictionary = initAPI()
@@ -28,6 +30,7 @@ def album():
         if song["album"]["name"] not in album_list:
             album_list.append(song["album"]["name"])
     return album_list
+
 def song(album):
     """Given input of artist name and album
     name, returns songs in album if query is
@@ -44,6 +47,7 @@ def song(album):
     if found == False:
         print("Information not found")
     return song_list
+
 def fav_artist(artist):
     """Creates dictionary with artist key and number of likes in value"""
     fav_artist_list.append(artist)
@@ -52,8 +56,10 @@ def fav_artist(artist):
     sorted_dict = dict(sorted(favorites.items(), key=lambda x:x[1]))
     res = dict(reversed(list(sorted_dict.items())))
     return res
+
 def add_like(album):
     fav_albums[album]["likes"] = fav_albums[album]["likes"] + 1
+    
 #print(album())
 # album = "Red"
 #print(song(album))
