@@ -77,3 +77,6 @@ def add_like(album):
 
 def getLikes():
     return fav_albums
+
+def getAlbum(album):
+    return fav_albums[album]

@@ -19,10 +19,10 @@ class TaylorAPI:
 
     # Help :(
     class _UpdateLike(Resource):
-        def put(self):
+        def get(self, album):
             add_like(album)
-            return jsonify(getLikes())
+            return jsonify(getAlbum(album))
 
 
-    api.add_resource(_Taylor, '/taylor') # Why is this not showing up on web server :(
-    api.add_resource(_UpdateLike, '/likes') # Help :(
+    api.add_resource(_Taylor, '/taylor') 
+    api.add_resource(_UpdateLike, '/like/<string:album>') # Help :(
