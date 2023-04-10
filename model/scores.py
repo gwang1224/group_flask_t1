@@ -1,55 +1,30 @@
-""" database dependencies to support sqliteDB examples """
 from random import randrange
-import os, base64
 import json
-
 from __init__ import app, db
 from sqlalchemy.exc import IntegrityError
 
-
-''' Tutorial: https://www.sqlalchemy.org/library.html#tutorials, try to get into Python shell and follow along '''
-
-
-# Define the User class to manage actions in the 'users' table
-# -- Object Relational Mapping (ORM) is the key concept of SQLAlchemy
-# -- a.) db.Model is like an inner layer of the onion in ORM
-# -- b.) User represents data we want to store, something that is built on db.Model
-# -- c.) SQLAlchemy ORM is layer on top of SQLAlchemy Core, then SQLAlchemy engine, SQL
+# Define the Score class to manage actions in the 'scores' table
 class Score(db.Model):
-    __tablename__ = 'scores'  # table name is plural, class name is singular
+    # sets scores as the name of the table
+    __tablename__ = 'scores'
 
-    # Define the User schema with "vars" from object
+    # Define the Score schema with variables
     id = db.Column(db.Integer, primary_key=True)
     _name = db.Column(db.String(255), unique=False, nullable=False)
     _score = db.Column(db.String(255), unique=False, nullable=False)
 
-    # Defines a relationship between User record and Notes table, one-to-many (one user to many notes)
-    # posts = db.relationship("Post", cascade='all, delete', backref='scores', lazy=True)
-
-    # constructor of a User object, initializes the instance variables within object (self)
+    # constructor the Score object, initialize the object's attributes with variables
     def __init__(self, name, score):
-        self._name = name    # variables with self prefix become part of the object, 
+        self._name = name     
         self._score = score
 
-    # a name getter method, extracts name from object
     @property
     def name(self):
         return self._name
     
-    # a setter function, allows name to be updated after initial object creation
-    @name.setter
-    def name(self, name):
-        self._name = name
-    
-    # a getter method, extracts email from object
     @property
     def score(self):
         return self._score
-    
-    # a setter function, allows name to be updated after initial object creation
-    @score.setter
-    def score(self, score):
-        self._score = score
         
     # check if uid parameter matches user id in object, return boolean
     def is_score(self, score):
