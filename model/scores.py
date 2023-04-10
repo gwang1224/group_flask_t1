@@ -1,6 +1,4 @@
-from random import randrange
-import json
-from __init__ import app, db
+from __init__ import db
 from sqlalchemy.exc import IntegrityError
 
 # Define the Score class to manage actions in the 'scores' table
