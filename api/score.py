@@ -1,4 +1,3 @@
-import json
 from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource
 from model.scores import Score
