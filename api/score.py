@@ -30,7 +30,6 @@ class ScoreAPI:
             elif int(score) > 10:
                 return {'message': f'Please input a score that is valid: 0 to 10'}, 400
 
-
             # setup Score Object, keys name and score
             so = Score(name=name, 
                       score=score)
