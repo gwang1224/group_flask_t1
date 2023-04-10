@@ -80,7 +80,7 @@ def stub():
 @app.before_first_request
 def activate_job():
     initJokes()
-    initUsers()
+    # initUsers()
     initPeriods()
     initComments()
     initScores()

@@ -21,14 +21,14 @@ class ScoreAPI:
             if name is None or len(name) < 2:
                 return {'message': f'Name is missing, or is less than 2 characters'}, 400
               
-            # validate uid
-            uid = body.get('uid')
-            if uid is None or len(uid) < 1:
+            # validate score
+            score = body.get('score')
+            if score is None or len(score) < 1:
                 return {'message': f'User ID is missing, or is less than 2 characters'}, 400
 
             ''' #1: Key code block, setup USER OBJECT '''
             uo = Score(name=name, 
-                      uid=uid)
+                      score=score)
             
             
             ''' #2: Key Code block to add user to database '''
@@ -38,7 +38,7 @@ class ScoreAPI:
             if user:
                 return jsonify(user.read())
             # failure returns error
-            return {'message': f'Processed {name}, either a format error or User ID {uid} is duplicate'}, 400
+            return {'message': f'Processed {name}, either a format error or User ID {score} is duplicate'}, 400
 
     class _Read(Resource):
         def get(self):
