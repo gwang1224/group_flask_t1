@@ -9,7 +9,8 @@ score_api = Blueprint('score_api', __name__,
 
 api = Api(score_api)
 
-class ScoreAPI:        
+class ScoreAPI:    
+    # CRUD function    
     class _Create(Resource):
         def post(self):
             # Parses the incoming JSON request data and returns it
@@ -21,35 +22,37 @@ class ScoreAPI:
             if name is None or len(name) < 2:
                 return {'message': f'Name is missing, or is less than 2 characters'}, 400
               
-            # validate score
+            # validates score
             score = body.get('score')
-            if score is None or len(score) < 1:
-                return {'message': f'User ID is missing, or is less than 2 characters'}, 400
+            # if user does not input score, it gives 400 error message and asks for a score
+            if score is None:
+                return {'message': f'You did not input a score, please input a score'}, 400
+            # since the quiz contains 10 questions, if user inputs a score greater than 10, asks for a valid score
+            elif int(score) > 10:
+                return {'message': f'Please input a score that is valid: 0 to 10'}, 400
 
-            ''' #1: Key code block, setup USER OBJECT '''
-            uo = Score(name=name, 
+
+            # setup Score Object, keys name and score
+            so = Score(name=name, 
                       score=score)
             
-            
-            ''' #2: Key Code block to add user to database '''
-            # create user in database
-            user = uo.create()
-            # success returns json of user
+            # create user in scores database
+            user = so.create()
+            # if creation of user is successful, returns user in json
             if user:
                 return jsonify(user.read())
-            # failure returns error
-            return {'message': f'Processed {name}, either a format error or User ID {score} is duplicate'}, 400
+            # failure to create user in database returns error message
+            return {'message': f'Unable to store {name}'}, 400
 
+    # CRUD function
     class _Read(Resource):
         def get(self):
-            users = Score.query.all()    # read/extract all users from database
-            json_ready = [user.read() for user in users]  # prepare output in json
-            return jsonify(json_ready)  # jsonify creates Flask response object, more specific to APIs than json.dumps
+            users = Score.query.all()    # reads all users from scores database
+            json_ready = [user.read() for user in users]  # formats output in dictionary json format
+            return jsonify(json_ready)  # jsonify creates response object
     
 
-            
-
-    # building RESTapi endpoint
-    api.add_resource(_Create, '/create')
+    # building RESTapi endpoint with url prefix
     api.add_resource(_Read, '/')
+    api.add_resource(_Create, '/create')
     
